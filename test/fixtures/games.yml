@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player_1_id: 1
+  player_2_id: 1
+  played: false
+
+two:
+  player_1_id: 1
+  player_2_id: 1
+  played: false
