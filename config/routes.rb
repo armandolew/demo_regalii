@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get '/log',     to: 'games#new'
 
   resources :games, only: [:show, :create]
+  resources :rankings, only: [:index]
 end

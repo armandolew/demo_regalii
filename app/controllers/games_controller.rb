@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  include GamesHelper
   before_action :set_opponents, only: [:new, :create]
  
   def new
@@ -8,7 +9,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     if @game.save
-      redirect_to games_path 
+      redirect_to history_path 
     else
       flash.now[:danger] = "Game could not be save"
       render 'new'

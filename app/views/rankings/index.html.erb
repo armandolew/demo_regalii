@@ -1,0 +1,26 @@
+<% if !@rankings.nil? %>
+
+    <table class='table'>
+      <thead>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Score</th>
+        <th>Games played</th>
+      </thead>
+      <tbody>
+      <% @rankings.each do |ranking| %>
+        <tr> 
+          <td><%= ranking.position %></td>
+          <td><%= get_player_username(ranking.user_id) %></td>
+          <td><%= ranking.points %></td>
+	  <td><%= games_played(ranking.user_id) %></td>        
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+<% else %>
+
+  No rankings to show
+
+<% end %>
