@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "home#index"
+  root to: "rankings#index"
   get '/history', to: 'games#index'
   get '/log',     to: 'games#new'
 

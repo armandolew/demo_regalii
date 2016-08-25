@@ -58,7 +58,7 @@ module GamesHelper
   end
 
   def games_played(user_id)
-    @games_played = Game.where('player_1_id =? OR player_2_id =?', current_user.id, current_user.id).count
+    @games_played = Game.where('player_1_id =? OR player_2_id =?', user_id, user_id).count
   end
 
 
