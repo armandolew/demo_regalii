@@ -9,6 +9,7 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(game_params)
     if @game.save
+      award_points(@game)
       redirect_to history_path 
     else
       flash.now[:danger] = "Game could not be save"
