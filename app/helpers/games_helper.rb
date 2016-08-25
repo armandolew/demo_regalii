@@ -25,14 +25,14 @@ module GamesHelper
 
   def award_points(game)
     if game.player_1_score.to_i > game.player_2_score.to_i
-      ranking = Ranking.where(:user_id => game.player_1_id).first
+      ranking = Ranking.find_by(:user_id => game.player_1_id)
       if ranking
         points = ranking.points.to_i + 3
         ranking.update(:points => points)
       end      
       return game.player_1_id
     else
-      ranking = Ranking.where(:user_id => game.player_2_id).first
+      ranking = Ranking.find_by(:user_id => game.player_2_id)
       if ranking
         points = ranking.points.to_i + 3
         ranking.update(:points => points)
