@@ -1,5 +1,7 @@
 class GamesController < ApplicationController
   include GamesHelper
+  include RankingsHelper
+
   before_action :set_opponents, only: [:new, :create]
  
   def new
@@ -10,6 +12,7 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
     if @game.save
       award_points(@game)
+      set_rankings
       redirect_to history_path 
     else
       flash.now[:danger] = "Game could not be save"
